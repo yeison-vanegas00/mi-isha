@@ -1,29 +1,31 @@
 /* =========================================================
    CONFIGURACIÓN — cambia aquí el nombre y los textos
    ========================================================= */
-const NOMBRE = 'Isa';
+const NOMBRE = 'MI Isha';
 
 const FOTOS = [
-  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM.jpeg', caption: 'Mi lugar favorito 💜' },
-  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM (1).jpeg', caption: 'Tú y yo, siempre' },
+  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM.jpeg', caption: 'Mi lugar favorito 🖤' },
+  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM (1).jpeg', caption: 'Tú y yo, siempre 💛' },
   { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM (2).jpeg', caption: 'Esa sonrisa ✨' },
-  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.11 PM.jpeg', caption: 'Mi felicidad' },
-  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.11 PM (1).jpeg', caption: 'Te amo con el alma' },
+  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.11 PM.jpeg', caption: 'Mi abejita 🐝' },
+  { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.11 PM (1).jpeg', caption: 'Te amo con el alma 🖤' },
 ];
 
 const RAZONES = [
-  { emoji: '😊', text: 'Tu sonrisa ilumina hasta mis peores días' },
+  { emoji: '😊', text: 'Tu sonrisa es mi debilidad mi amor' },
   { emoji: '🫶', text: 'Me haces querer ser mejor persona cada día' },
-  { emoji: '🌙', text: 'Contigo hasta el silencio se siente bonito' },
-  { emoji: '💜', text: 'Porque eres mi persona favorita en el mundo' },
-  { emoji: '✨', text: 'Tu forma de mirarme me desarma completo' },
-  { emoji: '🏡', text: 'Tus abrazos son mi casa' },
+  { emoji: '🌙', text: 'Me haces sentir que todo está bien' },
+  { emoji: '🖤', text: 'Porque eres mi persona favorita en el mundo' },
+  { emoji: '✨', text: 'Tu forma de mirarme es todo lo que yo necesito' },
+  { emoji: '🏡', text: 'Eres mi paz total mi vida linda' },
+  { emoji: '🐝', text: 'Porque eres mi abejita, la más linda de todas' },
+  { emoji: '💛', text: 'Porque endulzas mi vida más que la miel' },
 ];
 
 const FRASES = [
   'Sé que me equivoqué y lo siento con todo mi corazón...',
-  'No hay nada que quiera más que verte sonreír otra vez.',
-  'Te amo con toda mi alma 💜',
+  'No hay nada que quiera más que verte feliz nuevamente conmigo.',
+  'Te amo con toda mi alma, mi abejita 🐝🖤',
 ];
 
 /* ========================================================= */
@@ -39,7 +41,7 @@ $('#hero-img').src = url(FOTOS[0].src);
 const canvas = $('#bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [];
-const COLORS = ['#c4b5fd', '#a855f7', '#d946ef', '#e9d5ff', '#8b5cf6'];
+const COLORS = ['#c4b5fd', '#a855f7', '#d946ef', '#e9d5ff', '#8b5cf6', '#facc15', '#fde047'];
 
 function resize() {
   W = canvas.width = innerWidth * devicePixelRatio;
@@ -52,7 +54,9 @@ resize();
 
 function makeParticle(initial = false) {
   const heart = Math.random() < 0.45;
+  const bee = !heart && Math.random() < 0.12;
   return {
+    bee,
     x: Math.random() * W,
     y: initial ? Math.random() * H : H + 30,
     size: (heart ? 6 + Math.random() * 10 : 1 + Math.random() * 2) * devicePixelRatio,
@@ -85,7 +89,11 @@ function animate() {
     ctx.fillStyle = p.color;
     ctx.shadowBlur = 15;
     ctx.shadowColor = p.color;
-    if (p.heart) drawHeart(p.x, p.y, p.size);
+    if (p.bee) {
+      ctx.shadowBlur = 0;
+      ctx.font = `${16 * devicePixelRatio}px serif`;
+      ctx.fillText('🐝', p.x, p.y);
+    } else if (p.heart) drawHeart(p.x, p.y, p.size);
     else { ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); }
     if (p.y < -40) particles[i] = makeParticle();
   });
@@ -95,7 +103,30 @@ animate();
 
 /* ---------- Brillo que sigue al cursor ---------- */
 const glow = $('#cursor-glow');
+/* ---------- Abejita que te sigue ---------- */
+const beeEl = $('#bee');
+const beePos = { x: innerWidth / 2, y: innerHeight / 2 };
+const beeTarget = { x: innerWidth / 2, y: innerHeight / 2 };
+let lastMove = 0;
+function flyBee(t) {
+  // Si no se mueve el mouse (o en celular), la abejita pasea sola
+  if (Date.now() - lastMove > 2500) {
+    beeTarget.x = innerWidth / 2 + Math.sin(t / 1800) * innerWidth * 0.38;
+    beeTarget.y = innerHeight / 2 + Math.sin(t / 1100) * innerHeight * 0.3;
+  }
+  const dx = beeTarget.x - beePos.x;
+  beePos.x += dx * 0.04;
+  beePos.y += (beeTarget.y - beePos.y) * 0.04;
+  const wobble = Math.sin(t / 120) * 4;
+  beeEl.style.transform = `translate(${beePos.x}px, ${beePos.y + wobble}px) scaleX(${dx > 0 ? -1 : 1})`;
+  requestAnimationFrame(flyBee);
+}
+requestAnimationFrame(flyBee);
+
 addEventListener('pointermove', (e) => {
+  lastMove = Date.now();
+  beeTarget.x = e.clientX + 30;
+  beeTarget.y = e.clientY - 30;
   glow.style.left = e.clientX + 'px';
   glow.style.top = e.clientY + 'px';
 });
@@ -106,7 +137,7 @@ addEventListener('click', (e) => {
   burst(e.clientX, e.clientY, 5);
 });
 function burst(x, y, n = 6) {
-  const em = ['💜', '💗', '✨', '🤍', '💕'];
+  const em = ['🖤', '💛', '🐝', '✨', '🖤', '💛'];
   for (let i = 0; i < n; i++) {
     const h = document.createElement('span');
     h.className = 'click-heart';
@@ -238,7 +269,7 @@ function runMeter() {
     if (v >= 999) {
       clearInterval(t);
       num.textContent = '∞';
-      note.textContent = 'Infinito. Te amo con toda mi alma 💜';
+      note.textContent = 'Infinito. Te amo con toda mi alma 🖤🐝💛';
     }
   }, 22);
 }
@@ -258,7 +289,7 @@ function observeReveals() {
 
 /* ---------- ¿Me perdonas? ---------- */
 const noBtn = $('#no-btn');
-const noTexts = ['No', '¿Segura?', 'Piénsalo 🥺', 'Porfa 💜', '¡No me atrapas!', 'Dale al otro 👉'];
+const noTexts = ['No', '¿Segura?', 'Piénsalo 🥺', 'Porfa abejita 🐝', '¡No me atrapas!', 'Dale al otro 👉'];
 let noCount = 0;
 function runAway() {
   noBtn.classList.add('runaway');

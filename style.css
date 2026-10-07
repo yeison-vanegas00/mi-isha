@@ -47,6 +47,13 @@ body.locked { overflow: hidden; }
 
 main, .intro, .modal, .lightbox { position: relative; z-index: 2; }
 
+/* Abejita voladora */
+#bee {
+  position: fixed; top: 0; left: 0; z-index: 150; pointer-events: none;
+  font-size: 34px; margin: -17px 0 0 -17px; will-change: transform;
+  filter: drop-shadow(0 0 12px rgba(250, 204, 21, .75));
+}
+
 /* ===== Botones ===== */
 .btn {
   font-family: inherit; font-size: 1.05rem; font-weight: 600;
@@ -112,7 +119,7 @@ main, .intro, .modal, .lightbox { position: relative; z-index: 2; }
 .env-seal {
   position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); z-index: 5;
   width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
-  background: radial-gradient(circle, #f0abfc, #c026d3); font-size: 1.4rem;
+  background: radial-gradient(circle, #fef08a, #eab308); font-size: 1.4rem;
   box-shadow: 0 4px 15px rgba(0,0,0,.35); transition: opacity .3s;
 }
 .env-letter {
