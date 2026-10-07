@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perdóname, mi amor 💜</title>
+  <meta name="description" content="Una carta de perdón hecha con todo mi amor, para la persona que amo con toda mi alma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="aurora"><span></span><span></span><span></span></div>
+  <div id="cursor-glow"></div>
+
+  <!-- ================= INTRO: SOBRE ================= -->
+  <section id="intro" class="intro">
+    <p class="intro-hint">Tienes un mensaje especial 💌</p>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir sobre">
+      <div class="env-back"></div>
+      <div class="env-letter">
+        <span>Para ti,</span>
+        <strong id="intro-name">mi amor</strong>
+        <span class="mini-heart">💜</span>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">💜</div>
+    </div>
+    <button class="btn btn-glow" id="open-btn">Abrir</button>
+  </section>
+
+  <!-- ================= CONTENIDO ================= -->
+  <main id="main" class="hidden">
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="hero-photo">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <img id="hero-img" alt="Nosotros dos" />
+      </div>
+      <h1 class="hero-title">
+        <span class="shine">Perdóname,</span><br />
+        <span class="gradient-text" id="hero-name">mi amor</span>
+      </h1>
+      <p class="typewriter" id="typewriter"></p>
+      <a href="#galeria" class="scroll-down" aria-label="Bajar">
+        <span></span>
+      </a>
+    </header>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="section">
+      <h2 class="section-title reveal">Nuestros momentos</h2>
+      <p class="section-sub reveal">Cada foto contigo es mi lugar favorito del mundo</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- RAZONES -->
+    <section id="razones" class="section">
+      <h2 class="section-title reveal">Razones por las que te amo</h2>
+      <p class="section-sub reveal">Toca cada tarjeta 💜</p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- CONTADOR DE AMOR -->
+    <section id="medidor" class="section">
+      <h2 class="section-title reveal">¿Cuánto te amo?</h2>
+      <div class="meter reveal">
+        <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+        <p class="meter-value"><span id="meter-num">0</span>%</p>
+        <p class="meter-note" id="meter-note">Calculando...</p>
+      </div>
+    </section>
+
+    <!-- CARTA -->
+    <section id="carta" class="section">
+      <div class="letter glass reveal">
+        <h2 class="section-title small">Mi carta para ti</h2>
+        <div class="letter-body">
+          <p>Mi amor, sé que me equivoqué y que te hice sentir mal. No hay excusa para eso, y lo único que quiero es que sepas lo arrepentido que estoy.</p>
+          <p>Eres lo más bonito que tengo. Tu sonrisa me arregla los días, tu voz me da paz y tus abrazos son mi casa. No quiero que nada apague esa luz que tienes.</p>
+          <p>Te prometo escucharte más, cuidarte mejor y demostrarte todos los días lo importante que eres para mí. No con palabras, sino con hechos.</p>
+          <p>Te amo con toda mi alma, hoy, mañana y siempre.</p>
+          <p class="signature">— Tuyo, siempre 💜</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTA FINAL -->
+    <section id="pregunta" class="section final">
+      <div class="big-heart reveal">
+        <svg viewBox="0 0 32 29.6"><path d="M23.6 0c-3.4 0-6.3 2.7-7.6 5.6C14.7 2.7 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 9.5 11.9 16 21.2 6.1-9.3 16-12.1 16-21.2C32 3.8 28.2 0 23.6 0z"/></svg>
+      </div>
+      <h2 class="section-title reveal">¿Me perdonas?</h2>
+      <div class="answer-zone" id="answer-zone">
+        <button class="btn btn-glow" id="yes-btn">Sí, te perdono 💜</button>
+        <button class="btn btn-ghost" id="no-btn">No</button>
+      </div>
+    </section>
+
+    <footer class="footer">Hecho con todo mi amor, solo para ti 💜</footer>
+  </main>
+
+  <!-- MODAL FINAL -->
+  <div class="modal" id="final-modal">
+    <div class="modal-card glass">
+      <div class="modal-emoji">🥹💜</div>
+      <h2>¡Gracias, mi amor!</h2>
+      <p>Te prometo cuidarte y amarte cada día más. Eres mi persona favorita en todo el universo.</p>
+      <p class="gradient-text strong">Te amo con toda mi alma</p>
+      <button class="btn btn-glow" id="close-modal">Abrazo infinito 🤗</button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="Cerrar">✕</button>
+    <button class="lb-nav prev" id="lb-prev" aria-label="Anterior">‹</button>
+    <img id="lb-img" alt="Foto ampliada" />
+    <button class="lb-nav next" id="lb-next" aria-label="Siguiente">›</button>
+    <p id="lb-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
