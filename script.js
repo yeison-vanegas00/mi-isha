@@ -34,7 +34,7 @@ const url = (p) => encodeURI(p);
 
 document.body.classList.add('locked');
 $('#intro-name').textContent = NOMBRE;
-$('#hero-name').textContent = `mi ${NOMBRE}`;
+$('#hero-name').textContent = NOMBRE;
 $('#hero-img').src = url(FOTOS[0].src);
 
 /* ---------- Canvas de corazones y estrellas ---------- */
