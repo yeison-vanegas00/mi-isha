@@ -105,23 +105,24 @@ animate();
 const glow = $('#cursor-glow');
 /* ---------- Abejita que te sigue ---------- */
 const beeEl = $('#bee');
-const beePos = { x: innerWidth / 2, y: innerHeight / 2 };
-const beeTarget = { x: innerWidth / 2, y: innerHeight / 2 };
-let lastMove = 0;
-function flyBee(t) {
-  // Si no se mueve el mouse (o en celular), la abejita pasea sola
-  if (Date.now() - lastMove > 2500) {
-    beeTarget.x = innerWidth / 2 + Math.sin(t / 1800) * innerWidth * 0.38;
-    beeTarget.y = innerHeight / 2 + Math.sin(t / 1100) * innerHeight * 0.3;
+if (beeEl) {
+  const beePos = { x: innerWidth / 2, y: innerHeight / 2 };
+  const beeTarget = { x: innerWidth / 2, y: innerHeight / 2 };
+  let lastMove = 0;
+  function flyBee(t) {
+    if (Date.now() - lastMove > 2500) {
+      beeTarget.x = innerWidth / 2 + Math.sin(t / 1800) * innerWidth * 0.38;
+      beeTarget.y = innerHeight / 2 + Math.sin(t / 1100) * innerHeight * 0.3;
+    }
+    const dx = beeTarget.x - beePos.x;
+    beePos.x += dx * 0.04;
+    beePos.y += (beeTarget.y - beePos.y) * 0.04;
+    const wobble = Math.sin(t / 120) * 4;
+    beeEl.style.transform = `translate(${beePos.x}px, ${beePos.y + wobble}px) scaleX(${dx > 0 ? -1 : 1})`;
+    requestAnimationFrame(flyBee);
   }
-  const dx = beeTarget.x - beePos.x;
-  beePos.x += dx * 0.04;
-  beePos.y += (beeTarget.y - beePos.y) * 0.04;
-  const wobble = Math.sin(t / 120) * 4;
-  beeEl.style.transform = `translate(${beePos.x}px, ${beePos.y + wobble}px) scaleX(${dx > 0 ? -1 : 1})`;
   requestAnimationFrame(flyBee);
 }
-requestAnimationFrame(flyBee);
 
 addEventListener('pointermove', (e) => {
   lastMove = Date.now();
