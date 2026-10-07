@@ -2,6 +2,7 @@
    CONFIGURACIÓN — cambia aquí el nombre y los textos
    ========================================================= */
 const NOMBRE = 'Mi Isha';
+const APODO = 'Papoiii';
 
 const FOTOS = [
   { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM.jpeg', caption: 'Mi lugar favorito 🖤' },
@@ -34,7 +35,7 @@ const url = (p) => encodeURI(p);
 
 document.body.classList.add('locked');
 $('#intro-name').textContent = NOMBRE;
-$('#hero-name').textContent = NOMBRE;
+$('#hero-name').textContent = APODO;
 $('#hero-img').src = url(FOTOS[0].src);
 
 /* ---------- Canvas de corazones y estrellas ---------- */
