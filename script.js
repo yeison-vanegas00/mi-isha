@@ -13,7 +13,7 @@ const FOTOS = [
 
 const RAZONES = [
   { emoji: '😊', text: 'Tu sonrisa es mi debilidad mi amor' },
-  { emoji: '🫶', text: 'Me haces querer ser mejor persona cada día' },
+  { emoji: '🫶', text: 'Me haces querer ser mejor persona cada día y esforzarme por mi niña' },
   { emoji: '🌙', text: 'Me haces sentir que todo está bien' },
   { emoji: '🖤', text: 'Porque eres mi persona favorita en el mundo' },
   { emoji: '✨', text: 'Tu forma de mirarme es todo lo que yo necesito' },
