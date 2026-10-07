@@ -1,7 +1,7 @@
 /* =========================================================
    CONFIGURACIÓN — cambia aquí el nombre y los textos
    ========================================================= */
-const NOMBRE = 'MI Isha';
+const NOMBRE = 'Mi Isha';
 
 const FOTOS = [
   { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM.jpeg', caption: 'Mi lugar favorito 🖤' },
@@ -13,7 +13,7 @@ const FOTOS = [
 
 const RAZONES = [
   { emoji: '😊', text: 'Tu sonrisa es mi debilidad mi amor' },
-  { emoji: '🫶', text: 'Me haces querer ser mejor persona cada día y esforzarme por mi niña' },
+  { emoji: '🫶', text: 'Me haces querer ser mejor persona cada dían y esforzarme por mi niña' },
   { emoji: '🌙', text: 'Me haces sentir que todo está bien' },
   { emoji: '🖤', text: 'Porque eres mi persona favorita en el mundo' },
   { emoji: '✨', text: 'Tu forma de mirarme es todo lo que yo necesito' },
@@ -126,8 +126,10 @@ if (beeEl) {
 
 addEventListener('pointermove', (e) => {
   lastMove = Date.now();
-  beeTarget.x = e.clientX + 30;
-  beeTarget.y = e.clientY - 30;
+  if (beeEl) {
+    beeTarget.x = e.clientX + 30;
+    beeTarget.y = e.clientY - 30;
+  }
   glow.style.left = e.clientX + 'px';
   glow.style.top = e.clientY + 'px';
 });
