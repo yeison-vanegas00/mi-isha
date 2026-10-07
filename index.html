@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perdóname, mi amor 🖤🐝</title>
-  <meta name="description" content="Una carta de perdón hecha con todo mi amor, para la persona que amo con toda mi alma." />
+  <title>Perdóname, mi amor 💜</title>
+  <meta name="description"
+    content="Una carta de perdón hecha con todo mi amor, para la persona que amo con toda mi alma." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <canvas id="bg-canvas"></canvas>
   <div class="aurora"><span></span><span></span><span></span></div>
   <div id="cursor-glow"></div>
-  <div id="bee" aria-hidden="true">🐝</div>
 
   <!-- ================= INTRO: SOBRE ================= -->
   <section id="intro" class="intro">
-    <p class="intro-hint">Tienes un mensaje especial 💌</p>
+    <p class="intro-hint">Tienes un mensaje especial de novio 💌 </p>
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir sobre">
       <div class="env-back"></div>
       <div class="env-letter">
         <span>Para ti,</span>
-        <strong id="intro-name">mi amor</strong>
-        <span class="mini-heart">🖤🐝💛</span>
+        <strong id="intro-name">Papoiii</strong>
+        <span class="mini-heart">💜</span>
       </div>
       <div class="env-front"></div>
       <div class="env-flap"></div>
-      <div class="env-seal">🐝</div>
+      <div class="env-seal">💜</div>
     </div>
     <button class="btn btn-glow" id="open-btn">Abrir</button>
   </section>
@@ -62,7 +64,7 @@
     <!-- RAZONES -->
     <section id="razones" class="section">
       <h2 class="section-title reveal">Razones por las que te amo</h2>
-      <p class="section-sub reveal">Toca cada tarjeta 🖤</p>
+      <p class="section-sub reveal">Toca cada tarjeta 💜</p>
       <div class="cards" id="cards"></div>
     </section>
 
@@ -70,7 +72,9 @@
     <section id="medidor" class="section">
       <h2 class="section-title reveal">¿Cuánto te amo?</h2>
       <div class="meter reveal">
-        <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+        <div class="meter-bar">
+          <div class="meter-fill" id="meter-fill"></div>
+        </div>
         <p class="meter-value"><span id="meter-num">0</span>%</p>
         <p class="meter-note" id="meter-note">Calculando...</p>
       </div>
@@ -81,10 +85,14 @@
       <div class="letter glass reveal">
         <h2 class="section-title small">Mi carta para ti</h2>
         <div class="letter-body">
-          <p>Mi amor, sé que me equivoqué y que te hice sentir mal. No me quiero excusar con mis acciones, y lo único que quiero es que sepas lo arrepentido que estoy.</p>
-          <p>Eres lo más bonito que tengo, tu sonrisa me encanta y es mi felicidad entera, eres mi paz, me encanta como eres, cada cosita de ti me encanta, desde tu cabello hasta tus pies, me encanta como me tratas y como me haces sentir amado y no quiero que nada apague esa luz que tienes.</p>
-          <p>Te prometo escucharte más, cuidarte mejor y demostrarte todos los días lo importante que eres para mí, enserio no quiero que sean solo palabras, quiero demostrartelo con hechos.</p>
-          <p>Te amo con toda mi alma, hoy, mañana y siempre, mi abejita linda 🐝💛</p>
+          <p>Mi amor, sé que me equivoqué y que te hice sentir mal. No me quiero excusar con mis acciones, y lo único
+            que quiero es que sepas lo arrepentido que estoy.</p>
+          <p>Eres lo más bonito que tengo, tu sonrisa me encanta y es mi felicidad entera, eres mi paz, me encanta como
+            eres en todo, como me traas, me mimas, me das beshitos, me entiendes, me respetas, me valoras, cada cosita de ti me encanta, desde tu cabello hasta tus pies, me encanta como me tratas y como me
+            haces sentir amado y no quiero que nada apague esa luz y esa esencia tan linda que tienes.</p>
+          <p>Te prometo escucharte más, cuidarte mejor y demostrarte todos los días lo importante que eres para mí,
+            enserio no quiero que sean solo palabras, quiero demostrartelo con hechos.</p>
+          <p>Te amo con toda mi alma, hoy, mañana y siempre.</p>
           <p class="signature">— Tuyo, siempre 🖤</p>
         </div>
       </div>
@@ -93,7 +101,10 @@
     <!-- PREGUNTA FINAL -->
     <section id="pregunta" class="section final">
       <div class="big-heart reveal">
-        <svg viewBox="0 0 32 29.6"><path d="M23.6 0c-3.4 0-6.3 2.7-7.6 5.6C14.7 2.7 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 9.5 11.9 16 21.2 6.1-9.3 16-12.1 16-21.2C32 3.8 28.2 0 23.6 0z"/></svg>
+        <svg viewBox="0 0 32 29.6">
+          <path
+            d="M23.6 0c-3.4 0-6.3 2.7-7.6 5.6C14.7 2.7 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 9.5 11.9 16 21.2 6.1-9.3 16-12.1 16-21.2C32 3.8 28.2 0 23.6 0z" />
+        </svg>
       </div>
       <h2 class="section-title reveal">¿Me perdonas?</h2>
       <div class="answer-zone" id="answer-zone">
@@ -102,15 +113,15 @@
       </div>
     </section>
 
-    <footer class="footer">Hecho con todo mi amor, solo para ti 🖤🐝💛</footer>
+    <footer class="footer">Hecho con todo mi amor, solo para ti 🖤</footer>
   </main>
 
   <!-- MODAL FINAL -->
   <div class="modal" id="final-modal">
     <div class="modal-card glass">
-      <div class="modal-emoji">🥹🖤🐝💛</div>
+      <div class="modal-emoji">🥹🖤</div>
       <h2>¡Gracias, mi amor!</h2>
-      <p>Te prometo cuidarte y amarte cada día más. Eres mi persona favorita en todo el universo, mi abejita hermosa.</p>
+      <p>Te prometo cuidarte y amarte cada día más. Eres mi persona favorita en todo el universo.</p>
       <p class="gradient-text strong">Te amo con toda mi alma</p>
       <button class="btn btn-glow" id="close-modal">Abrazo infinito 🤗</button>
     </div>
@@ -127,4 +138,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
