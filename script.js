@@ -2,7 +2,7 @@
    CONFIGURACIÓN — cambia aquí el nombre y los textos
    ========================================================= */
 const NOMBRE = 'Mi Isha';
-const APODO = 'Papoiii';
+const APODO = 'papoiii';
 
 const FOTOS = [
   { src: 'imagenes/WhatsApp Image 2026-10-07 at 1.11.10 PM.jpeg', caption: 'Mi lugar favorito 🖤' },
